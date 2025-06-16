@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carbon Emission Calculator</title>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 600;
+    }
+
+    .con {
+      width: 100%;
+    }
+
+    form {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background-color: #191717a5;
+      border-radius: 22px;
+      padding: 30px;
+      margin: 5% auto;
+      gap: 20px;
+    }
+
+    form input,
+    form select {
+      background-color: #191717a5;
+      border-radius: 11px;
+      width: 450px;
+      color: rgb(243, 255, 240);
+      outline: none;
+      border: none;
+      padding: 20px 30px;
+    }
+
+    form select {
+      width: 200px;
+      /* height: 40px; */
+      color: #fff;
+    }
+
+    form select option {
+      background: #000;
+      /* color: floralwhite; */
+    }
+
+    form button {
+      background-color: transparent;
+      padding: 10px 25px;
+      color: aliceblue;
+      border: 3px outset green;
+      cursor: pointer;
+      border-radius: 21px;
+      transition-duration: 1s;
+      font-weight: 700;
+      margin-left: 320px;
+    }
+
+    form button:hover {
+      border: 3px inset green;
+      transform: translateY(-4px);
+      box-shadow: 0 0 10px rgba(0, 128, 0, 0.449);
+    }
+
+    form label {
+      margin-top: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 10px;
+      background-color: #096d22;
+      text-shadow: 0.4px 0.4px 3px rgb(0, 0, 0);
+    }
+
+    #result {
+      display: none;
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px green;
+    }
+
+    canvas {
+      margin: auto;
+      max-width: 300px;
+      max-height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="con">
+    <h1>Calculate Your Household Carbon Emissions</h1>
+
+    <div id="form-section">
+      <form id="carbon-form">
+        <label for="housemem">No. of Households</label>
+        <input type="number" id="housemem" placeholder="Enter no. of households" required />
+
+        <label for="bill">Energy Consumption per Month:</label>
+        <input type="number" id="bill" placeholder="Enter kWh / month" required />
+
+        <label for="vehicle">Vehicle type:</label>
+        <select id="vehicle" required>
+          <option value="">--Select--</option>
+          <option value="Car">Car</option>
+          <option value="Bike">Bike</option>
+          <option value="Bus">Bus</option>
+          <option value="Train">Train</option>
+        </select>
+
+        <label for="fuel">Fuel Type:</label>
+        <select id="fuel" required>
+          <option value="">--Select--</option>
+          <option value="Petrol">Petrol</option>
+          <option value="Diesel">Diesel</option>
+          <option value="CNG">CNG</option>
+          <option value="Electric">Electric</option>
+        </select>
+
+        <label for="distance">Travel Distance per Month:</label>
+        <input type="number" id="distance" placeholder="Enter km per month" required />
+
+        <label for="flight">No. of Flights per year:</label>
+        <input type="number" id="flight" placeholder="Enter no of flights per year" required />
+
+        <label for="diet">Diet type:</label>
+        <select id="diet" required>
+          <option value="">--Select--</option>
+          <option value="Vegetarian">Vegetarian</option>
+          <option value="Non-Vegetarian">Non-Vegetarian</option>
+          <option value="Vegan">Vegan</option>
+          <option value="Mixied">Mixied</option>
+        </select>
+
+        <label for="meals">No. of meat-based meals per week:</label>
+        <input type="number" id="meals" placeholder="Enter no of meat-based meals per week" required />
+
+        <label for="waste">Waste Generated (kg/week)</label>
+        <input type="number" id="waste" placeholder="Enter kg/week" required />
+
+        <label for="recycle">Do you Recycle:</label>
+        <select id="recycle" required>
+          <option value="">--Select--</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div id="result">
+      <h2>Your Estimated Carbon Emission</h2>
+      <p id="emission-output" style="font-size: 24px; font-weight: bold; color: #fff;"></p>
+      <canvas id="carbonPieChart"></canvas>
+
+      <button id="recalculateBtn"
+        style="margin: 15px; padding: 10px 20px; background-color: #222; color: white; border: 2px solid #0f0; border-radius: 10px; cursor: pointer;">
+        Recalculate
+      </button>
+
+      <button id="homeBtn" onclick="window.location.href='index.html'"
+        style="margin: 15px; padding: 10px 20px; background-color: #222; color: white; border: 2px solid #0f0; border-radius: 10px; cursor: pointer;">
+        Go to Home
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let chartInstance = null;
+
+    document.getElementById("carbon-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const households = +document.getElementById("housemem").value;
+      const electricity = +document.getElementById("bill").value;
+      const distance = +document.getElementById("distance").value;
+      const flights = +document.getElementById("flight").value;
+      const waste = +document.getElementById("waste").value;
+
+      const vehicle = document.getElementById("vehicle").value;
+      const fuel = document.getElementById("fuel").value;
+      const diet = document.getElementById("diet").value;
+      const recycle = document.getElementById("recycle").value;
+      const meatMeals = +document.getElementById("meals").value;
+
+      const electricityFactor = 0.7;
+      const fuelFactors = { Petrol: 2.31, Diesel: 2.68, CNG: 2.0, Electric: 0.0 };
+      const vehicleFactors = { Car: 1.0, Bike: 0.5, Bus: 0.2, Train: 0.1 };
+      const flightFactor = 250;
+      const dietFactors = { Vegetarian: 1.5, "Non-Vegetarian": 3.3, Vegan: 1.0, Mixied: 2.5 };
+      const wasteFactor = recycle === "Yes" ? 0.5 : 1.0;
+
+      const energyEmission = electricity * electricityFactor;
+      const travelEmission = distance * (fuelFactors[fuel] || 0) * (vehicleFactors[vehicle] || 0);
+      const flightEmission = flights * flightFactor;
+      const dietEmission = (dietFactors[diet] || 0) + (meatMeals * 0.8);
+      const wasteEmission = waste * wasteFactor * 4;
+
+      const totalEmission = (energyEmission + travelEmission + flightEmission + dietEmission + wasteEmission) * households;
+
+      const breakdown = {
+        Energy: energyEmission * households,
+        Travel: travelEmission * households,
+        Flights: flightEmission * households,
+        Diet: dietEmission * households,
+        Waste: wasteEmission * households
+      };
+
+      document.getElementById("form-section").style.display = "none";
+      document.getElementById("result").style.display = "block";
+      document.getElementById("emission-output").innerText = `${totalEmission.toFixed(2)} kg CO₂ / month`;
+
+      const ctx = document.getElementById("carbonPieChart").getContext("2d");
+      if (chartInstance) chartInstance.destroy();
+
+      chartInstance = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: Object.keys(breakdown),
+          datasets: [{
+            data: Object.values(breakdown),
+            backgroundColor: ["#4CAF50", "#2196F3", "#FF9800", "#9C27B0", "#F44336"],
+            borderColor: "#000",
+            borderWidth: 1
+          }]
+        },
+        options: {
+          animation: {
+            animateScale: true,
+            animateRotate: true,
+            duration: 1500
+          },
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: {
+                color: "white",
+                font: { weight: "bold" }
+              }
+            },
+            title: {
+              display: true,
+              text: "Your Carbon Emissions Breakdown",
+              color: "white",
+              font: { size: 16 }
+            }
+          }
+        }
+      });
+
+      if (!document.getElementById("downloadPDFBtn")) {
+        const btn = document.createElement("button");
+        btn.innerText = "📄 Download Report (PDF)";
+        btn.id = "downloadPDFBtn";
+        btn.style.cssText = "margin: 15px; padding: 10px 20px; background-color: #222; color: white; border: 2px solid #0f0; border-radius: 10px; cursor: pointer;";
+        document.getElementById("result").appendChild(btn);
+
+        btn.addEventListener("click", () => {
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF();
+
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(18);
+          doc.setTextColor(0, 0, 0);
+          doc.text("Carbon Emission Report", 20, 20);
+
+          const tableData = Object.entries(breakdown).map(([k, v]) => [k, `${v.toFixed(2)} kg CO₂`]);
+
+          doc.autoTable({
+            startY: 30,
+            head: [["Category", "Emission (kg CO₂)"]],
+            body: tableData,
+            theme: "grid",
+            headStyles: { fillColor: [0, 128, 0] },
+            styles: { textColor: [0, 0, 0], fontSize: 12 }
+          });
+
+          const finalY = doc.lastAutoTable.finalY || 60;
+          doc.setFontSize(12);
+          doc.text(`Total Emission: ${totalEmission.toFixed(2)} kg CO₂ / month`, 20, finalY + 10);
+
+          const chartImage = document.getElementById("carbonPieChart").toDataURL("image/png");
+          doc.addImage(chartImage, "PNG", 20, finalY + 20, 100, 100);
+
+          doc.save("carbon_emission_report.pdf");
+        });
+      }
+    });
+
+    document.getElementById("recalculateBtn").addEventListener("click", () => {
+      document.getElementById("carbon-form").reset();
+      document.getElementById("form-section").style.display = "block";
+      document.getElementById("result").style.display = "none";
+      if (chartInstance) chartInstance.destroy();
+      const btn = document.getElementById("downloadPDFBtn");
+      if (btn) btn.remove();
+    });
+  </script>
+</body>
+
+</html>
