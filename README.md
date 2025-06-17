@@ -36,10 +36,10 @@ CarbonCount is a user-friendly web application designed to help households under
 ## 📷 Screenshots
 
 ### Home Page  
-![Home Screenshot](screenshots/home.png)
+![Home Screenshot](screenshots/homepage.png)
 
 ### Calculator in Action  
-![Calculator Screenshot](screenshots/calculator.png)
+![Calculator Screenshot](screenshots/calculate.png)
 
 *(Add actual images to a `/screenshots` folder in your GitHub repo)*
 
