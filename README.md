@@ -27,7 +27,7 @@ CarbonCount is a user-friendly web application designed to help households under
 ## 👥 Developers
 
 - **Pepakayala Sivasai** – Lead Developer, UI/UX, Core Functionality  
-- **Taraksai** – Co-developer, Design Support & Collaboration
+- **Tanagala Taraksai** – Co-developer, Design Support & Collaboration
 
 > *Note: While CarbonCount is a team project, the majority of the development was led and executed by Pepakayala Sivasai.*
 
