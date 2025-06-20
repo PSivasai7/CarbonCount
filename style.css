@@ -105,7 +105,7 @@ header {
   margin: 20px 0;
 }
 
-.btns button {
+.cbtn {
 
   background-color: transparent;
   padding: 10px 25px;
@@ -119,14 +119,14 @@ header {
   border: 3px outset green;
 }
 
-.btns button:hover {
+.cbtn:hover {
   transform: translateY(-3px);
   border: 3px inset green;
   box-shadow: 0 0 10px rgba(0, 128, 0, 0.442);
   cursor: pointer;
 }
 
-.btns button a {
+.cbtn a {
   color: aliceblue;
   text-decoration: none;
 }
@@ -195,20 +195,34 @@ hr {
   font-size: 16px;
   color: lightgray;
 }
-#submitbtn{
-  padding: 10px 20px; 
-  background-color: #28a745; 
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor:pointer;
+
+.burgermenu {
+  position: absolute;
+  right: 5px;
+  top: 22px;
+  cursor: pointer;
+  display: none;
+}
+
+#close {
+  display: none;
 }
 
 
-@media (max-width: 768px) {
+
+@media (max-width:769px) {
+  .burgermenu {
+    display: block;
+  }
+
   .navbox {
+    display: none;
     margin-left: 1rem;
     flex-direction: column;
+    position: absolute;
+    top: 52px;
+    right: -6px;
+    /* background-color: black; */
   }
 
   .navbox li {
@@ -217,5 +231,90 @@ hr {
 
   .blogbox {
     width: 95%;
+  }
+
+  .btns {
+    position: absolute;
+    top: 508px;
+    left: 39px;
+    text-align: center;
+    margin: 20px 0;
+  }
+}
+/* Responsive Typography & Layout Adjustments */
+@media (max-width: 1024px) {
+  .slider {
+    background-size: cover;
+  }
+
+  .cbtn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .blogbox h1 {
+    font-size: 20px;
+  }
+
+  .blogbox p {
+    font-size: 14px;
+  }
+
+  #contact h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .btns {
+    left: 50%;
+    top: auto;
+    bottom: 20px;
+    transform: translateX(-50%);
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cbtn {
+    margin: 10px 0;
+    width: 150px;
+    font-size: 14px;
+  }
+
+  .blogbox {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .blogbox h1 {
+    font-size: 18px;
+  }
+
+  .blogbox p {
+    font-size: 14px;
+  }
+
+  .contactbox {
+    padding: 20px !important;
+  }
+
+  .contactbox input,
+  .contactbox textarea {
+    padding: 8px !important;
+    font-size: 14px;
+  }
+
+  .dev {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .dev > div {
+    width: 100%;
+    text-align: center;
   }
 }
