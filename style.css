@@ -36,7 +36,6 @@ header {
 
 .logo {
   margin-left: 2rem;
-  /* font-family: monospace; */
   font-weight: bold;
   font-size: 1.3rem;
 }
@@ -60,10 +59,8 @@ header {
 .navbox li a {
   text-decoration: none;
   color: rgba(240, 248, 255, 0.63);
-  /* font-family: monospace; */
   font-family: "Ubuntu", sans-serif;
   font-weight: 900;
-  font-style: normal;
   font-size: 1rem;
   padding-bottom: 4px;
   transition: 0.3s;
@@ -76,12 +73,10 @@ header {
   color: rgba(240, 248, 255, 0.99);
 }
 
-
 .container {
   display: flex;
   flex-direction: column;
 }
-
 
 .mainbox {
   height: 100vh;
@@ -93,7 +88,7 @@ header {
 
 .slider {
   flex: 1;
-  background: url('imgs/CarbonCount2222.png') no-repeat center;
+  background: url('imgs/CarbonCount2222.png') no-repeat top;
   background-size: contain;
 }
 
@@ -106,7 +101,6 @@ header {
 }
 
 .cbtn {
-
   background-color: transparent;
   padding: 10px 25px;
   color: aliceblue;
@@ -114,16 +108,13 @@ header {
   cursor: pointer;
   margin: 0 10px;
   border-radius: 19px;
-  /* transition-duration: 1s; */
   transition: all 0.3s ease;
-  border: 3px outset green;
 }
 
 .cbtn:hover {
   transform: translateY(-3px);
   border: 3px inset green;
   box-shadow: 0 0 10px rgba(0, 128, 0, 0.442);
-  cursor: pointer;
 }
 
 .cbtn a {
@@ -131,7 +122,7 @@ header {
   text-decoration: none;
 }
 
-/* Blogs sect */
+/* Blogs */
 .blogpost {
   scroll-margin-top: 10vh;
   padding: 40px 20px;
@@ -178,6 +169,7 @@ hr {
   margin: 30px 0;
 }
 
+/* Contact */
 #contact {
   scroll-margin-top: 10vh;
   padding: 60px 20px;
@@ -196,6 +188,7 @@ hr {
   color: lightgray;
 }
 
+/* Burger menu */
 .burgermenu {
   position: absolute;
   right: 5px;
@@ -208,40 +201,8 @@ hr {
   display: none;
 }
 
+/* ========== RESPONSIVE MEDIA QUERIES ========== */
 
-
-@media (max-width:769px) {
-  .burgermenu {
-    display: block;
-  }
-
-  .navbox {
-    display: none;
-    margin-left: 1rem;
-    flex-direction: column;
-    position: absolute;
-    top: 52px;
-    right: -6px;
-    /* background-color: black; */
-  }
-
-  .navbox li {
-    margin: 10px 0;
-  }
-
-  .blogbox {
-    width: 95%;
-  }
-
-  .btns {
-    position: absolute;
-    top: 508px;
-    left: 39px;
-    text-align: center;
-    margin: 20px 0;
-  }
-}
-/* Responsive Typography & Layout Adjustments */
 @media (max-width: 1024px) {
   .slider {
     background-size: contain;
@@ -265,24 +226,73 @@ hr {
   }
 }
 
-@media (max-width: 600px) {
-  .logo {
-    font-size: 1rem;
+@media (max-width: 769px) {
+  .burgermenu {
+    display: block;
+  }
+
+  .navbox {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 52px;
+    right: 10px;
+  }
+
+  .navbox li {
+    margin: 10px 0;
+  }
+
+  .blogbox {
+    width: 95%;
   }
 
   .btns {
-    left: 50%;
+    position: relative;
+    left: auto;
     top: auto;
-    bottom: 20px;
-    transform: translateX(-50%);
+    margin: 20px auto;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
   }
 
   .cbtn {
-    margin: 10px 0;
-    width: 150px;
+    width: 180px;
+  }
+}
+
+@media (max-width: 620px) {
+  .mainbox {
+    height: auto;
+  }
+
+  .slider {
+    height: 300px;
+    background-size: contain;
+    background-position: center top;
+  }
+
+  .btns {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cbtn {
+    width: 160px;
     font-size: 14px;
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 1rem;
   }
 
   .blogbox {
@@ -316,5 +326,22 @@ hr {
   .dev > div {
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .btns {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .slider {
+    height: 70vh;
+    background-size: contain;
+    background-position: center;
   }
 }
