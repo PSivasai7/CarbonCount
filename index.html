@@ -1,301 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CarbonCount</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <header>
-      <div class="navbar">
-        <div class="logo">CarbonCount</div>
-        <div class="burgermenu" id="menubox">
-          <svg
-            id="menu"
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="currentColor"
-            class="bi bi-list"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
-            />
-          </svg>
-          <svg
-            id="close"
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-x-square"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
-            />
-            <path
-              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
-            />
-          </svg>
-        </div>
-        <ul class="navbox" id="nav">
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#blogs" class="nav-link">Blogs</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CarbonCount</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">CarbonCount</div>
+      <div class="burgermenu" id="menubox">
+        <svg id="menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+        </svg>
+        <svg id="close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-x-square" viewBox="0 0 16 16">
+          <path
+            d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+          <path
+            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+        </svg>
       </div>
-    </header>
+      <ul class="navbox" id="nav">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#blogs" class="nav-link">Blogs</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
 
-    <div class="container">
-      <section class="mainbox" id="home">
-        <div class="slider"></div>
-        <div class="btns">
-          <a href="form.html"> <button class="cbtn">Start</button></a>
-          <a href="#blogs"><button class="cbtn">Learn More</button> </a>
-        </div>
-      </section>
+  <div class="container">
+    <section class="mainbox" id="home">
+      <div class="slider">
+        <img src="imgs/CarbonCount2222.png" class="bannerimg" alt="CarbonCount Banner" />
+      </div>
+      <div class="btns">
+        <a href="form.html"> <button class="cbtn">Start</button></a>
+        <a href="#blogs"><button class="cbtn">Learn More</button> </a>
+      </div>
+    </section>
 
-      <section class="blogpost" id="blogs">
-        <div class="blogbox">
-          <p>Post 1:</p>
-          <img src="imgs/Carbon_Footprint_Blog_Header.jpg" alt="Carbon Blog" />
-          <h1>What is a Carbon Footprint and How Is It Measured?</h1>
-          <p>
-            <b>Understanding Your Environmental Impact</b><br /><br />
-            A carbon footprint refers to the total amount of greenhouse
-            gases—primarily carbon dioxide—released into the atmosphere as a
-            result of human activities. Everything from driving a car, using
-            electricity, cooking food, or even purchasing goods contributes to
-            it. These emissions are usually measured in equivalent tons of CO₂
-            (CO₂e). But how is it measured? Scientists and calculators use
-            lifecycle assessments to analyze emissions across different
-            activities or products—from production to usage and disposal. By
-            tracking emissions from transportation, energy use, waste, and
-            consumption habits, individuals and households can understand and
-            reduce their carbon footprint. It's a small step with a huge
-            environmental impact.
-          </p>
-        </div>
-        <hr />
-        <div class="blogbox">
-          <p>Post 2:</p>
-          <img src="imgs/Carbon-calculator.png" alt="Calculator" />
-          <h1>Introducing the Carbon Calculator: Measure What Matters</h1>
-          <p>
-            <b>Track, Analyze, and Reduce Your Footprint</b><br /><br />
+    <section class="blogpost" id="blogs">
+      <h1>Blogs:</h1>
+      <div class="blogbox">
+        <p>Post 1:</p>
+        <img src="imgs/Carbon_Footprint_Blog_Header.jpg" alt="Carbon Blog" />
+        <h1>What is a Carbon Footprint and How Is It Measured?</h1>
+        <p>
+          <b>Understanding Your Environmental Impact</b><br /><br />
+          A carbon footprint refers to the total amount of greenhouse
+          gases—primarily carbon dioxide—released into the atmosphere as a
+          result of human activities. Everything from driving a car, using
+          electricity, cooking food, or even purchasing goods contributes to
+          it. These emissions are usually measured in equivalent tons of CO₂
+          (CO₂e). But how is it measured? Scientists and calculators use
+          lifecycle assessments to analyze emissions across different
+          activities or products—from production to usage and disposal. By
+          tracking emissions from transportation, energy use, waste, and
+          consumption habits, individuals and households can understand and
+          reduce their carbon footprint. It's a small step with a huge
+          environmental impact.
+        </p>
+      </div>
+      <hr />
+      <div class="blogbox">
+        <p>Post 2:</p>
+        <img src="imgs/Carbon-calculator.png" alt="Calculator" />
+        <h1>What is a Carbon Calculator and How Does It Work?</h1>
+        <p>
+          <b>Understand Your Environmental Impact</b><br /><br />
 
-            The Carbon Calculator icon is more than a logo—it symbolizes a tool
-            that empowers people to take control of their climate impact. Our
-            calculator is designed especially for households, letting you input
-            daily habits like energy usage, water consumption, transportation,
-            and waste disposal. With clear, actionable insights, you can find
-            out how much CO₂ your lifestyle emits and what you can do to change
-            it. Whether it's switching to LED bulbs, using public transport, or
-            composting food waste, our goal is to help you live greener—one step
-            at a time. Start measuring today, and make every footprint count.
-          </p>
-        </div>
-        <hr />
-        <div class="blogbox">
-          <p>Post 3:</p>
-          <img src="imgs/p84-85_01_800x600.jpeg" alt="CO2 Sources" />
-          <h1>Why Lowering CO₂ Emissions Matters for Our Planet</h1>
-          <p>
-            <b> Visualizing the Carbon Puzzle </b> <br />
-            <br />
+          A carbon calculator is a digital tool designed to estimate the amount of carbon dioxide (CO₂) emissions
+          generated by your everyday activities. It works by analyzing inputs like electricity usage, fuel consumption,
+          travel habits, diet choices, and waste generation. Each of these activities contributes to your carbon
+          footprint—the total greenhouse gas emissions you're responsible for.
 
-            The image of a globe surrounded by icons like factories, cars, solar
-            panels, and plants represents the interconnected sources and
-            solutions of CO₂ emissions. From the fuel we burn in vehicles to the
-            electricity powering our homes and industries, carbon dioxide is a
-            common byproduct of modern life. This blog reminds us that while
-            emissions come from many sectors, solutions also span across many
-            areas—renewable energy, sustainable transportation, efficient
-            factories, and greener habits. Lowering our CO₂ output helps fight
-            climate change, reduce pollution, and build a healthier future. Our
-            carbon calculator helps households identify which daily activities
-            have the most impact and suggests simple ways to reduce emissions.
-          </p>
-        </div>
-        <hr />
-        <div class="blogbox">
-          <p>Post 4:</p>
-          <img
-            src="imgs/sus-blog-carbon-footprint-banner.png"
-            alt="Sustainability"
-          />
-          <h1>
-            🌱 Sustainability in Trade Shows: Reducing the Carbon Footprint
-          </h1>
-          <p>
-            Trade shows are valuable for networking and innovation, but they
-            also leave behind a large carbon footprint—from travel and logistics
-            to single-use materials and waste. <br />
-            <br />
+          Our carbon calculator simplifies this complex data into an easy-to-use interface. Just enter your daily or
+          weekly habits—such as how many kilometers you drive, how often you use air conditioning, or how much meat you
+          consume—and the calculator uses scientific emission factors to give you an accurate footprint in kilograms or
+          tons of CO₂.
 
-            Here's how we can make them greener: <br />
-            ✅ Go Digital – Use QR codes, digital brochures, and online
-            materials instead of printing. <br />
+          With this data, you can identify high-impact areas and take meaningful actions to reduce your emissions.
+          Whether you're trying to go green at home, travel smarter, or shift to a more sustainable lifestyle, the
+          carbon calculator is your first step toward a cleaner planet.
+        </p>
+      </div>
 
-            ✅ Eco-Friendly Venues – Choose venues with green certifications and
-            renewable energy sources. <br />
+      <hr />
+      <div class="blogbox">
+        <p>Post 3:</p>
+        <img src="imgs/p84-85_01_800x600.jpeg" alt="CO2 Sources" />
+        <h1>Why Lowering CO₂ Emissions Matters for Our Planet</h1>
+        <p>
+          <b>Every Action Counts Toward a Cleaner Future</b><br /><br />
 
-            ✅ Sustainable Booths – Use reusable or recyclable materials instead
-            of plastic and foam. <br />
+          Carbon dioxide (CO₂) is one of the primary greenhouse gases contributing to global warming and climate change.
+          As our planet warms due to excess emissions from vehicles, industries, electricity generation, and even
+          agriculture, we face rising sea levels, extreme weather, and ecosystem disruption. Lowering CO₂ emissions
+          isn’t just an environmental goal—it’s a necessity for protecting human health, biodiversity, and the stability
+          of our planet.
 
-            ✅ Smart Travel – Promote local participation, carpooling, or hybrid
-            events. <br />
+          Reducing emissions means shifting to renewable energy, conserving resources, improving efficiency, and
+          adopting sustainable habits in daily life. Small lifestyle changes—like using public transportation, switching
+          to LED bulbs, or minimizing waste—can lead to significant long-term impact when adopted at scale.
 
-            ✅ Eco Giveaways – Offer digital or sustainable gifts like seed kits
-            or reusable items. <br />
+          Our mission with CarbonCount is to make this journey easier. By measuring your household’s carbon output and
+          showing where the biggest emissions come from, our tool empowers you to take control and make informed
+          choices. Because when we all act, even in small ways, the collective outcome is powerful: a healthier, safer,
+          and more sustainable planet for everyone.
+        </p>
+      </div>
+      <hr />
+      <div class="blogbox">
+        <p>Post 4:</p>
+        <img src="imgs/sus-blog-carbon-footprint-banner.png" alt="Reduce Carbon Footprint" />
+        <h1>🌍 How to Reduce Your Household’s Carbon Footprint</h1>
+        <p>
+          Reducing your carbon footprint doesn't mean completely changing your lifestyle overnight. It’s about making
+          smarter, greener choices in your daily routine. When every household takes small steps, the collective impact
+          on the planet is massive.
+          Here are some effective ways to cut down your household’s carbon emissions:
+          <br /><br />
 
-            ✅ Waste & Energy Management – Set up recycling stations and use LED
-            lighting to reduce consumption.
-          </p>
-        </div>
-      </section>
+          ✅ <b>Save Energy at Home</b> – Switch to LED bulbs, unplug devices when not in use, and use energy-efficient
+          appliances.<br />
+          ✅ <b>Switch to Renewable Sources</b> – If possible, use solar panels or choose a green electricity
+          provider.<br />
+          ✅ <b>Reduce Water Usage</b> – Fix leaks, install low-flow taps, and be mindful of water consumption while
+          bathing or washing.<br />
+          ✅ <b>Cut Down on Waste</b> – Recycle properly, compost food scraps, and avoid single-use plastics.<br />
+          ✅ <b>Change Travel Habits</b> – Walk, cycle, carpool, or use public transport instead of driving alone.<br />
+          ✅ <b>Eat Sustainably</b> – Reduce meat consumption, support local farmers, and avoid processed foods with high
+          environmental costs.<br />
+          ✅ <b>Shop Smart</b> – Buy durable goods, repair instead of replace, and support eco-conscious brands.<br />
 
-      <section
-        id="contact"
-        style="padding: 40px 20px; background-color: #3d3939"
-      >
-        <div
-          class="contactbox"
-          style="
+       <br>
+          These steps not only reduce emissions but also often lead to cost savings and a healthier lifestyle. Tools
+          like our <b>CarbonCount calculator</b> help you identify which of these actions will have the most impact for
+          your specific household.
+
+          <br /><br />
+          Start small, stay consistent, and inspire others around you—because climate action begins at home.
+        </p>
+      </div>
+
+
+
+    </section>
+
+    <section id="contact" style="padding: 40px 20px; background-color: #3d3939">
+      <div class="contactbox" style="
             max-width: 800px;
             margin: auto;
             background: rgb(55, 55, 55);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-          "
-        >
-          <h2 style="text-align: center; margin-bottom: 20px">Contact Us</h2>
+          ">
+        <h2 style="text-align: center; margin-bottom: 20px">Contact Us</h2>
 
-          <form
-            action="https://formsubmit.co/sivasaipepakayala07@gmail.com"
-            method="POST"
-          >
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
+        <form action="https://formsubmit.co/sivasaipepakayala07@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
 
-            <div style="margin-bottom: 15px">
-              <label for="name">Your Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                placeholder="Enter your name"
-                style="
+          <div style="margin-bottom: 15px">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name" style="
                   width: 100%;
                   padding: 10px;
                   border-radius: 5px;
                   border: 1px solid #ccc;
-                "
-              />
-            </div>
+                " />
+          </div>
 
-            <div style="margin-bottom: 15px">
-              <label for="email">Your Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="Enter your email"
-                style="
+          <div style="margin-bottom: 15px">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email" style="
                   width: 100%;
                   padding: 10px;
                   border-radius: 5px;
                   border: 1px solid #ccc;
-                "
-              />
-            </div>
+                " />
+          </div>
 
-            <div style="margin-bottom: 15px">
-              <label for="message">Your Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-                placeholder="Type your message"
-                style="
+          <div style="margin-bottom: 15px">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Type your message" style="
                   width: 100%;
                   padding: 10px;
                   border-radius: 5px;
                   border: 1px solid #ccc;
-                "
-              ></textarea>
-            </div>
+                "></textarea>
+          </div>
 
-            <button  id="contactbtn" type="submit" class="cbtn">Send Message</button>
-          </form>
+          <button id="contactbtn" type="submit" class="cbtn">Send Message</button>
+        </form>
 
-          <div style="margin-top: 40px">
-            <h3 style="text-align: center">Our Team:</h3>
-            <div
-              class="dev"
-              style="
+        <div style="margin-top: 40px">
+          <h3 style="text-align: center">Our Team:</h3>
+          <div class="dev" style="
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-around;
                 gap: 20px;
                 margin-top: 20px;
-              "
-            >
-              <div
-                style="
+              ">
+            <div style="
                   flex: 1;
                   min-width: 250px;
                   background: #000000;
                   padding: 15px;
                   border-radius: 8px;
-                "
-              >
-                <h4>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-terminal-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9.5 5.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1m-6.354-.354a.5.5 0 1 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2a.5.5 0 1 0-.708.708L4.793 6.5z"
-                    />
-                  </svg>
-                  Pepakayala Sivasai
-                </h4>
-                <p>
-                  <a
-                    href="https://www.linkedin.com/in/psivasai"
-                    target="_blank"
-                    style="color: #0077b5; text-decoration: none"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-linkedin"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 
+                ">
+              <h4>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-terminal-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9.5 5.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1m-6.354-.354a.5.5 0 1 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2a.5.5 0 1 0-.708.708L4.793 6.5z" />
+                </svg>
+                Pepakayala Sivasai
+              </h4>
+              <p>
+                <a href="https://www.linkedin.com/in/psivasai" target="_blank"
+                  style="color: #0077b5; text-decoration: none">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-linkedin" viewBox="0 0 16 16">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 
                 .513 16 1.146v13.708c0 .633-.526 
                 1.146-1.175 1.146H1.175C.526 16 0 
                 15.487 0 14.854zm4.943 
@@ -310,61 +250,40 @@
                 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 
                 0-1.845.7-2.165 
                 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 
-                0 7.225 0 7.225z"
-                      />
-                    </svg>
-                    LinkedIn
-                  </a>
-                </p>
-              </div>
+                0 7.225 0 7.225z" />
+                  </svg>
+                  LinkedIn
+                </a>
+              </p>
+            </div>
 
-              <div
-                style="
+            <div style="
                   flex: 1;
                   min-width: 250px;
                   background: #000000;
                   padding: 15px;
                   border-radius: 8px;
-                "
-              >
-                <h4>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-terminal-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 
+                ">
+              <h4>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-terminal-fill" viewBox="0 0 16 16">
+                  <path d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 
               2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 
               1-2-2zm9.5 5.5h-3a.5.5 0 0 0 
               0 1h3a.5.5 0 0 0 0-1m-6.354-.354a.5.5 
               0 1 0 .708.708l2-2a.5.5 0 0 0 
               0-.708l-2-2a.5.5 0 1 0-.708.708L4.793 
-              6.5z"
-                    />
-                  </svg>
-                  Tanagala Taraksai
-                </h4>
-            
-                <p>
-                  <a
-                    href="https://www.linkedin.com/in/tanagalataraksai/ "
-                    target="_blank"
-                    style="color: #0077b5; text-decoration: none"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-linkedin"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 
+              6.5z" />
+                </svg>
+                Tanagala Taraksai
+              </h4>
+
+              <p>
+                <a href="https://www.linkedin.com/in/tanagalataraksai/ " target="_blank"
+                  style="color: #0077b5; text-decoration: none">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-linkedin" viewBox="0 0 16 16">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 
                 .513 16 1.146v13.708c0 .633-.526 
                 1.146-1.175 1.146H1.175C.526 16 0 
                 15.487 0 14.854zm4.943 
@@ -379,37 +298,37 @@
                 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 
                 0-1.845.7-2.165 
                 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 
-                0 7.225 0 7.225z"
-                      />
-                    </svg>
-                    LinkedIn
-                  </a>
-                </p>
-              </div>
+                0 7.225 0 7.225z" />
+                  </svg>
+                  LinkedIn
+                </a>
+              </p>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+  </div>
 
-    <script>
-      document.getElementById("menu").addEventListener("click", () => {
-        document.getElementById("nav").style.display = "flex";
-        document.getElementById("menu").style.display = "none";
-        document.getElementById("close").style.display = "block";
+  <script>
+    document.getElementById("menu").addEventListener("click", () => {
+      document.getElementById("nav").style.display = "flex";
+      document.getElementById("menu").style.display = "none";
+      document.getElementById("close").style.display = "block";
+    });
+    document.getElementById("close").addEventListener("click", () => {
+      document.getElementById("menu").style.display = "block";
+      document.getElementById("close").style.display = "none";
+      document.getElementById("nav").style.display = "none";
+    });
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        navLinks.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
       });
-      document.getElementById("close").addEventListener("click", () => {
-        document.getElementById("menu").style.display = "block";
-        document.getElementById("close").style.display = "none";
-        document.getElementById("nav").style.display = "none";
-      });
-      const navLinks = document.querySelectorAll(".nav-link");
-      navLinks.forEach((link) => {
-        link.addEventListener("click", function () {
-          navLinks.forEach((item) => item.classList.remove("active"));
-          this.classList.add("active");
-        });
-      });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
