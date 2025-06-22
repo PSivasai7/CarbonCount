@@ -79,19 +79,25 @@ header {
 }
 
 .mainbox {
-  height: 100vh;
+  scroll-margin-top: 10vh;
   width: 100%;
   display: flex;
   flex-direction: column;
-  scroll-margin-top: 10vh;
 }
 
 .slider {
-  flex: 1;
-  background: url('imgs/CarbonCount2222.png') no-repeat top;
-  background-size: contain;
+  width: 100%;
 }
 
+.bannerimg {
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Buttons */
 .btns {
   position: absolute;
   top: 508px;
@@ -181,11 +187,20 @@ hr {
   font-size: 24px;
   margin-bottom: 10px;
   color: lightgreen;
+  color: green;
 }
 
 #contact p {
   font-size: 16px;
   color: lightgray;
+}
+
+.blogpost>h1 {
+  /* background-color: darkgreen; */
+  color: green;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 /* Burger menu */
@@ -204,10 +219,6 @@ hr {
 /* ========== RESPONSIVE MEDIA QUERIES ========== */
 
 @media (max-width: 1024px) {
-  .slider {
-    background-size: contain;
-  }
-
   .cbtn {
     padding: 8px 20px;
     font-size: 14px;
@@ -235,8 +246,11 @@ hr {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 52px;
-    right: 10px;
+    top: 81px;
+    right: -29px;
+    background-color: rgba(3, 3, 3, 0.722);
+    /* border: 2px solid green; */
+    padding: 10px 289px;
   }
 
   .navbox li {
@@ -268,10 +282,9 @@ hr {
     height: auto;
   }
 
-  .slider {
-    height: 300px;
-    background-size: contain;
-    background-position: center top;
+  .bannerimg {
+    max-height: 250px;
+    object-fit: contain;
   }
 
   .btns {
@@ -323,7 +336,7 @@ hr {
     align-items: center;
   }
 
-  .dev > div {
+  .dev>div {
     width: 100%;
     text-align: center;
   }
@@ -339,8 +352,8 @@ hr {
     margin-top: 20px;
   }
 
-  .slider {
-    height: 70vh;
+  .bannerimg {
+    height: auto;
     background-size: contain;
     background-position: center;
   }
