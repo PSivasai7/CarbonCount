@@ -216,7 +216,7 @@ hr {
   display: none;
 }
 
-/* ========== RESPONSIVE MEDIA QUERIES ========== */
+
 
 @media (max-width: 1024px) {
   .cbtn {
@@ -246,7 +246,7 @@ hr {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 81px;
+    top: 60px;
     right: -29px;
     background-color: rgba(3, 3, 3, 0.722);
     /* border: 2px solid green; */
