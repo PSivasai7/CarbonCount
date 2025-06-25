@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carbon Emission Calculator</title>
 
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -54,16 +53,15 @@
 
     form select {
       width: 200px;
-      /* height: 40px; */
       color: #fff;
     }
 
     form select option {
       background: #000;
-      /* color: floralwhite; */
     }
 
-    form button {
+    form button,
+    .stybtn {
       background-color: transparent;
       padding: 10px 25px;
       color: aliceblue;
@@ -72,10 +70,10 @@
       border-radius: 21px;
       transition-duration: 1s;
       font-weight: 700;
-      margin-left: 320px;
     }
 
-    form button:hover {
+    form button:hover,
+    .stybtn:hover {
       border: 3px inset green;
       transform: translateY(-4px);
       box-shadow: 0 0 10px rgba(0, 128, 0, 0.449);
@@ -107,6 +105,44 @@
       max-height: 300px;
     }
 
+    .tips-section {
+      margin-top: 30px;
+      background-color: #0d0d0d;
+      padding: 25px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+      color: #d0ffd0;
+      text-align: left;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 15px;
+    }
+
+    .tips-section h3 {
+      color: #00ff88;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+      text-align: center;
+      text-shadow: 0.5px 0.5px 2px #000;
+    }
+
+    .tips-section ul {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .tips-section ul li::before {
+      content: "🌿 ";
+      margin-right: 8px;
+    }
+
+    .tips-section ul li {
+      margin-bottom: 12px;
+    }
+
     @media (max-width: 768px) {
       form {
         width: 90%;
@@ -116,12 +152,12 @@
 
       form input,
       form select {
-        width: 90%;
+        width: 100%;
         padding: 15px;
       }
 
       form button {
-        width: 80%;
+        width: 100%;
         margin: 10px 0 0 0;
       }
 
@@ -130,21 +166,22 @@
         padding: 15px;
       }
 
-      #result p {
-        font-size: 18px;
-      }
-
       canvas {
         max-width: 250px;
         max-height: 250px;
       }
 
-      #recalculateBtn,
-      #homeBtn,
-      #downloadPDFBtn {
-        width: 90% !important;
-        margin: 10px auto !important;
-        display: block !important;
+      .tips-section {
+        padding: 20px;
+        font-size: 0.95rem;
+      }
+
+      .tips-section h3 {
+        font-size: 1.2rem;
+      }
+
+      .tips-section ul li {
+        font-size: 0.95rem;
       }
     }
   </style>
@@ -192,7 +229,7 @@
           <option value="Vegetarian">Vegetarian</option>
           <option value="Non-Vegetarian">Non-Vegetarian</option>
           <option value="Vegan">Vegan</option>
-          <option value="Mixied">Mixied</option>
+          <option value="Mixied">Mixed</option>
         </select>
 
         <label for="meals">No. of meat-based meals per week:</label>
@@ -208,31 +245,29 @@
           <option value="No">No</option>
         </select>
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="stybtn">Submit</button>
       </form>
     </div>
 
     <div id="result">
       <h2>Your Estimated Carbon Emission</h2>
       <p id="emission-output" style="font-size: 24px; font-weight: bold; color: #fff;"></p>
-      <canvas id="carbonPieChart"></canvas>
+      <canvas id="carbonPieChart" width="300" height="300"></canvas>
 
-      <button id="recalculateBtn"
-        style="margin: 15px; padding: 10px 20px; background-color: #222; color: white; border: 2px solid #0f0; border-radius: 10px; cursor: pointer;">
-        Recalculate
-      </button>
+      <div class="tips-section">
+        <h3>Tips to Reduce Your Carbon Footprint</h3>
+        <ul id="suggestion-list"></ul>
+      </div>
 
-      <button id="homeBtn" onclick="window.location.href='index.html'"
-        style="margin: 15px; padding: 10px 20px; background-color: #222; color: white; border: 2px solid #0f0; border-radius: 10px; cursor: pointer;">
-        Go to Home
-      </button>
+      <button class="stybtn" id="recalculateBtn">Recalculate</button>
+      <button class="stybtn" id="homeBtn" onclick="window.location.href='index.html' ">Go to Home</button>
     </div>
   </div>
 
   <script>
     let chartInstance = null;
 
-    document.getElementById("carbon-form").addEventListener("submit", async function (e) {
+    document.getElementById("carbon-form").addEventListener("submit", function (e) {
       e.preventDefault();
 
       const households = +document.getElementById("housemem").value;
@@ -240,7 +275,6 @@
       const distance = +document.getElementById("distance").value;
       const flights = +document.getElementById("flight").value;
       const waste = +document.getElementById("waste").value;
-
       const vehicle = document.getElementById("vehicle").value;
       const fuel = document.getElementById("fuel").value;
       const diet = document.getElementById("diet").value;
@@ -274,7 +308,9 @@
       document.getElementById("result").style.display = "block";
       document.getElementById("emission-output").innerText = `${totalEmission.toFixed(2)} kg CO₂ / month`;
 
-      const ctx = document.getElementById("carbonPieChart").getContext("2d");
+      const canvas = document.getElementById("carbonPieChart");
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       if (chartInstance) chartInstance.destroy();
 
       chartInstance = new Chart(ctx, {
@@ -312,24 +348,45 @@
         }
       });
 
+      chartInstance.resize();
+
+      const suggestionList = document.getElementById("suggestion-list");
+      suggestionList.innerHTML = "";
+
+      const threshold = totalEmission * 0.2;
+      if (breakdown.Energy > threshold) {
+        suggestionList.innerHTML += "<li>Switch to LED lights and energy-efficient appliances.</li><li>Consider solar power if available.</li>";
+      }
+      if (breakdown.Travel > threshold) {
+        suggestionList.innerHTML += "<li>Use public transport or carpooling.</li><li>Walk or bike for short distances.</li>";
+      }
+      if (breakdown.Flights > threshold) {
+        suggestionList.innerHTML += "<li>Reduce air travel; consider trains or buses.</li>";
+      }
+      if (breakdown.Diet > threshold) {
+        suggestionList.innerHTML += "<li>Reduce meat intake and try plant-based meals.</li>";
+      }
+      if (breakdown.Waste > threshold) {
+        suggestionList.innerHTML += "<li>Recycle and compost more household waste.</li>";
+      }
+      if (suggestionList.innerHTML === "") {
+        suggestionList.innerHTML = "<li>You're doing great! Keep living sustainably 🌱</li>";
+      }
+
       if (!document.getElementById("downloadPDFBtn")) {
         const btn = document.createElement("button");
         btn.innerText = "📄 Download Report (PDF)";
         btn.id = "downloadPDFBtn";
-        btn.style.cssText = "margin: 15px; padding: 10px 20px; background-color: #222; color: white; border: 2px solid #0f0; border-radius: 10px; cursor: pointer;";
+        btn.className = "stybtn";
         document.getElementById("result").appendChild(btn);
 
         btn.addEventListener("click", () => {
           const { jsPDF } = window.jspdf;
           const doc = new jsPDF();
-
           doc.setFont("helvetica", "bold");
           doc.setFontSize(18);
-          doc.setTextColor(0, 0, 0);
           doc.text("Carbon Emission Report", 20, 20);
-
           const tableData = Object.entries(breakdown).map(([k, v]) => [k, `${v.toFixed(2)} kg CO₂`]);
-
           doc.autoTable({
             startY: 30,
             head: [["Category", "Emission (kg CO₂)"]],
@@ -338,14 +395,11 @@
             headStyles: { fillColor: [0, 128, 0] },
             styles: { textColor: [0, 0, 0], fontSize: 12 }
           });
-
           const finalY = doc.lastAutoTable.finalY || 60;
           doc.setFontSize(12);
           doc.text(`Total Emission: ${totalEmission.toFixed(2)} kg CO₂ / month`, 20, finalY + 10);
-
-          const chartImage = document.getElementById("carbonPieChart").toDataURL("image/png");
+          const chartImage = canvas.toDataURL("image/png");
           doc.addImage(chartImage, "PNG", 20, finalY + 20, 100, 100);
-
           doc.save("carbon_emission_report.pdf");
         });
       }
