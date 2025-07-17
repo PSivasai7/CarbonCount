@@ -187,7 +187,7 @@ hr {
   font-size: 24px;
   margin-bottom: 10px;
   color: lightgreen;
-  color: green;
+  color: #03cc03;
 }
 
 #contact p {
@@ -197,7 +197,7 @@ hr {
 
 .blogpost>h1 {
   /* background-color: darkgreen; */
-  color: green;
+  color: #03cc03;
   text-align: center;
   padding: 10px;
   margin-bottom: 20px;
@@ -215,7 +215,9 @@ hr {
 #close {
   display: none;
 }
-
+h1{
+  color:#03cc03;
+}
 
 
 @media (max-width: 1024px) {
