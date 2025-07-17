@@ -195,7 +195,7 @@ hr {
   color: lightgray;
 }
 
-.blogpost>h1 {
+.blogpost > h1 {
   /* background-color: darkgreen; */
   color: #03cc03;
   text-align: center;
